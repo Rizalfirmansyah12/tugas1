@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Membuat Tombol Search</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <style>
+            .form-control {
+                width: 25%;
+            }
+    
+            input[type=search] {
+                float: right;
+                border: 1px solid rgb(0, 0, 0);
+                margin-bottom: 10px;
+            }
+            thead {
+                background-color: #00ffff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" align="center">
+
+        <input type="search" class="form-control light-table-filter" data-table="table-hover"
+            placeholder="Mencari..." />
+
+        <table border="1" class="table table-hover text-center">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Jens Kelamin</th>
+                <th>provinsi</th>
+            </tr>
+            </thead> 
+            <tr>
+                <td>1.</td>
+                <td>Ahmad</td>
+                <td>19</td>
+                <td>Laki-laki</td>
+                <td>Surabaya</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Zifa</td>
+                <td>17</td>
+                <td>Perempuan</td>
+                <td>Jakarta</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Turah</td>
+                <td>17</td>
+                <td>Laki-laki</td>
+                <td>Bali</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>Bani</td>
+                <td>18</td>
+                <td>Laki-laki</td>
+                <td>Jawa timur</td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td>Riska</td>
+                <td>19</td>
+                <td>Perempuan</td>
+                <td>Jawa tengah</td>
+            </tr>
+            <tr>
+                <td>6.</td>
+                <td>Talia</td>
+                <td>19</td>
+                <td>Perempuan</td>
+                <td>Sumatra barat</td>
+            </tr>
+            <tr>
+                <td>7.</td>
+                <td>Anggita</td>
+                <td>19</td>
+                <td>Perempuan</td>
+                <td>Jawa Tengah</td>
+            </tr>
+            <tr>
+                <td>8.</td>
+                <td>Bela</td>
+                <td>18</td>
+                <td>Perempuan</td>
+                <td>Jawa Barat</td>
+            </tr>
+            <tr>
+                <td>9.</td>
+                <td>Sigit</td>
+                <td>17</td>
+                <td>Laki-laki</td>
+                <td>Jakarta</td>
+            </tr>
+            <tr>
+                <td>10.</td>
+                <td>Mela</td>
+                <td>20</td>
+                <td>Perempuan</td>
+                <td>Jawa Timur</td>
+            </tr>
+            <tr>
+                <td>11.</td>
+                <td>Malio</td>
+                <td>20</td>
+                <td>Laki-laki</td>
+                <td>Yogyakarta</td>
+            </tr>
+            <tr>
+                <td>12.</td>
+                <td>Sandi</td>
+                <td>18</td>
+                <td>Laki-laki</td>
+                <td>Jawa Tengah</td>
+            </tr>
+            <tr>
+                <td>13.</td>
+                <td>Jovan</td>
+                <td>17</td>
+                <td>Laki-laki</td>
+                <td>Jakarta</td>
+            </tr>
+            <tr>
+                <td>14.</td>
+                <td>Jasmin</td>
+                <td>19</td>
+                <td>Perempuan</td>
+                <td>Banten</td>
+            </tr>
+            <tr>
+                <td>15.</td>
+                <td>Arum</td>
+                <td>18</td>
+                <td>Perempuan</td>
+                <td>Yogyakarta</td>
+            </tr>
+        </table>
+        </div>
+        <script type="text/javascript">
+
+            (function (document) {
+                'use strict';
+    
+                var LightTableFilter = (function (Arr) {
+    
+                    var _input;
+    
+                    function _onInputEvent(e) {
+                        _input = e.target;
+                        var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+                        Arr.forEach.call(tables, function (table) {
+                            Arr.forEach.call(table.tBodies, function (tbody) {
+                                Arr.forEach.call(tbody.rows, _filter);
+                            });
+                        });
+                    }
+    
+                    function _filter(row) {
+                        var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+                        row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+                    }
+    
+                    return {
+                        init: function () {
+                            var inputs = document.getElementsByClassName('light-table-filter');
+                            Arr.forEach.call(inputs, function (input) {
+                                input.oninput = _onInputEvent;
+                            });
+                        }
+                    };
+                })(Array.prototype);
+    
+                document.addEventListener('readystatechange', function () {
+                    if (document.readyState === 'complete') {
+                        LightTableFilter.init();
+                    }
+                });
+    
+            })(document);
+                (function (document) {
+                    'use strict';
+    
+                    var LightTableFilter = (function (Arr) {
+    
+                        var _input;
+    
+                        function _onInputEvent(e) {
+                            _input = e.target;
+                            var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+                            Arr.forEach.call(tables, function (table) {
+                                Arr.forEach.call(table.tBodies, function (tbody) {
+                                    Arr.forEach.call(tbody.rows, _filter);
+                                });
+                            });
+                        }
+    
+                        function _filter(row) {
+                            var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+                            row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+                        }
+    
+                        return {
+                            init: function () {
+                                var inputs = document.getElementsByClassName('light-table-filter');
+                                Arr.forEach.call(inputs, function (input) {
+                                    input.oninput = _onInputEvent;
+                                });
+                            }
+                        };
+                    })(Array.prototype);
+    
+                    document.addEventListener('readystatechange', function () {
+                        if (document.readyState === 'complete') {
+                            LightTableFilter.init();
+                        }
+                    });
+    
+                })(document);
+        </script>
+    </body>
+</html>
